@@ -2,7 +2,7 @@ CREATE DATABASE bdtecnicascontables
 CHARACTER SET utf8
 COLLATE utf8_spanish_ci;
 
-use reto;
+use bdtecnicascontables;
 
 
 create table Usuario(
