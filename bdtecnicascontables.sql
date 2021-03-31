@@ -27,7 +27,7 @@ create table Producto(
   codigo varchar(15)
 ) ENGINE=INNODB;
 alter table Producto add estado int;
---- update Producto set estado = 0 where id = 1;
+
 
 
 
