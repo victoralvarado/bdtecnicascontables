@@ -23,9 +23,11 @@ create table Producto(
   precio decimal(10,4),
   costo decimal(10,4),
   descripcion varchar(255),
-  imagen longblob,
+  imagen varchar(255),
   codigo varchar(15)
 ) ENGINE=INNODB;
+alter table Producto add estado int;
+--- update Producto set estado = 0 where id = 1;
 
 
 
@@ -40,7 +42,7 @@ create table Movimiento(
  descripcion varchar(255),
  constraint fk_move_product Foreign key (producto) references Producto(Id) on update cascade on delete no action
 ) ENGINE=INNODB;
-
+alter table Movimiento add estado int;
 
 
 
@@ -55,7 +57,7 @@ create table Cliente(
  giro varchar(255),
  telefono varchar(12)
 ) ENGINE=INNODB;
-
+alter table Cliente add estado int;
 
 
 create table Documento_serie(
@@ -65,7 +67,7 @@ create table Documento_serie(
  serie varchar(25),
  tipo enum('fcf', 'ccf', 'fex', 'nr', 'nc', 'nd')
 ) ENGINE=INNODB;
-
+alter table Documento_serie add estado int;
 
 
 create table Documento(
@@ -91,7 +93,7 @@ create table Documento(
  constraint fk_document_serie Foreign key (serie) references Documento_serie(Id) on update cascade on delete no action,
  constraint fk_document_client Foreign key (cliente) references Cliente(Id) on update cascade on delete no action
 ) ENGINE=INNODB;
-
+alter table Documento add estado int;
 
 
 create table Detalle_Documento(
@@ -103,7 +105,7 @@ create table Detalle_Documento(
  constraint fk_document_detail Foreign key (documento) references Documento(Id) on update cascade on delete no action,
  constraint fk_detail_product Foreign key (producto) references Producto(Id) on update cascade on delete no action
 ) ENGINE=INNODB;
-
+alter table Detalle_Documento add estado int;
 
 
 create table Proveedor(
@@ -117,7 +119,7 @@ create table Proveedor(
  direccion varchar(255),
  telefono varchar(12)
 ) ENGINE=INNODB;
-
+alter table Proveedor add estado int;
 
 
 create table Compra(
@@ -131,7 +133,7 @@ create table Compra(
  condiciones int unsigned default 0,
  constraint fk_purchase_supplier Foreign key (proveedor) references Proveedor(Id) on update cascade on delete no action
 ) ENGINE=INNODB;
-
+alter table Compra add estado int;
 
 
 create table Detalle_Compra(
@@ -143,7 +145,7 @@ create table Detalle_Compra(
  constraint fk_purchase_detail_product Foreign key (producto) references Producto(Id) on update cascade on delete no action,
  constraint fk_purchase_detail Foreign key (compra) references Compra(Id) on update cascade on delete no action
 ) ENGINE=INNODB;
-
+alter table Detalle_Compra add estado int;
 
 
 create table c_Cuentas(
@@ -158,7 +160,7 @@ create table c_Cuentas(
  tipo_saldo enum('deudor', 'acreedor'),
  cuenta_padre int unsigned null
 ) ENGINE=INNODB;
-
+alter table c_Cuentas add estado int;
 
 
 
@@ -175,7 +177,7 @@ create table c_Partida(
  partida_reversion int unsigned null,
  partida_revertida int unsigned null
 ) ENGINE=INNODB;
-
+alter table c_Partida add estado int;
 
 
 create table c_detallePartida(
@@ -189,7 +191,7 @@ create table c_detallePartida(
  constraint fk_partida_detalle foreign key (partidaId) references c_Partida(Id) on update cascade on delete no action,
  constraint fk_detalle_cuenta foreign key (cuentaId) references c_Cuentas(Id) on update cascade on delete no action
 ) ENGINE = INNODB;
-
+alter table c_detallePartida add estado int;
 
 
 create table c_Saldo(
@@ -200,3 +202,4 @@ create table c_Saldo(
  hasta datetime not null,
  constraint fk_saldo_cuenta foreign key (cuentaId) references c_Cuentas(Id) on update cascade on delete no action
 ) ENGINE = INNODB;
+alter table c_Saldo add estado int;
