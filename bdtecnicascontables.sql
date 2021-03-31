@@ -23,7 +23,7 @@ create table Producto(
   precio decimal(10,4),
   costo decimal(10,4),
   descripcion varchar(255),
-  imagen varchar(255),
+  imagen longblob,
   codigo varchar(15)
 ) ENGINE=INNODB;
 
