@@ -13,6 +13,7 @@ create table Usuario(
  intentos int unsigned default 5,
  estado enum('activo','desactivado','bloqueado')
 );
+alter table Usuario modify contra varchar(255);
 
 
 
