@@ -139,6 +139,10 @@ alter table Compra add tipo enum('ccf','nc');
 alter table Compra add numero_comprobante varchar(50);
 alter table Compra add nit varchar(50);
 alter table Compra add nrc varchar(50);
+alter table Compra add exentas_importacion decimal(10,2);
+alter table Compra add exentas_internas decimal(10,2);
+alter table Compra add gravadas_importacion decimal(10,2);
+alter table Compra add gravadas_internas decimal(10,2);
 alter table Compra add sujeto_excluido decimal(10,2);
 
 
