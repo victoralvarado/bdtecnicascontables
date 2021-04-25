@@ -144,6 +144,7 @@ alter table Compra add exentas_internas decimal(10,2);
 alter table Compra add gravadas_importacion decimal(10,2);
 alter table Compra add gravadas_internas decimal(10,2);
 alter table Compra add sujeto_excluido decimal(10,2);
+alter table Compra add totalCompras decimal(10,2);
 
 
 create table Detalle_Compra(
@@ -171,6 +172,30 @@ create table c_Cuentas(
  cuenta_padre int unsigned null
 ) ENGINE=INNODB;
 alter table c_Cuentas add estado int;
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'ACTIVO', 'Activo corriente', '1', 'Efectivo y Equivalentes', '1101', NULL, NULL, 'deudor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'ACTIVO', 'Activo corriente', '1', 'Cuentas por cobrar', '1102', NULL, NULL, 'deudor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'ACTIVO', 'Activo corriente', '1', 'impuestos por cobrar', '1103', NULL, NULL, 'deudor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'ACTIVO', 'Activo corriente', '1', 'Inventario', '1104', NULL, NULL, 'deudor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'ACTIVO', 'Activo no corriente', '1', 'Propiedad, Planta y Equipo', '1201', NULL, NULL, 'acreedor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'ACTIVO', 'Activo no corriente', '1', 'Depreciasión Acumulada', '1202', NULL, NULL, 'acreedor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'PASIVO', 'Pasivo Corriente', '1', 'Cuentas por pagar', '2101', NULL, NULL, 'deudor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'PASIVO', 'Pasivo Corriente', '1', 'Impuestos por pagar', '2102', NULL, NULL, 'acreedor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'PASIVO', 'Pasivo no Corriente', '1', 'Cuentas por pagar LP', '2201', NULL, NULL, 'acreedor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'CAPITAL', NULL, '1', 'Cuenta capital', '3101', NULL, NULL, 'acreedor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'CAPITAL', NULL, '1', 'Utilidad/Perdida del Ejercicio', '3102', NULL, NULL, 'acreedor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'CAPITAL', NULL, '1', 'Resultados acumulados', '3103', NULL, NULL, 'acreedor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'COSTOS y GASTOS', NULL, '1', 'Costo de Ventas', '4101', NULL, NULL, 'deudor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'COSTOS y GASTOS', NULL, '1', 'Gastos de Ventas', '4201', NULL, NULL, 'deudor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'COSTOS y GASTOS', NULL, '1', 'Gastos de Administración', '4202', NULL, NULL, 'deudor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'INGRESOS', NULL, '1', 'Ingreso por ventas', '5101', NULL, NULL, 'acreedor', NULL, '1');
+INSERT INTO `c_cuentas` (`id`, `rubro`, `agrupacion`, `cuenta`, `nombre`, `codigo`, `debe`, `haber`, `tipo_saldo`, `cuenta_padre`, `estado`) VALUES (NULL, 'INGRESOS', NULL, '1', 'Otros ingresos', '5102', NULL, NULL, 'acreedor', NULL, '1');
+
+
+
+
+
+
+
 
 
 
