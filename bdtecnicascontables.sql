@@ -134,6 +134,7 @@ create table Compra(
  condiciones int unsigned default 0,
  constraint fk_purchase_supplier Foreign key (proveedor) references Proveedor(Id) on update cascade on delete no action
 ) ENGINE=INNODB;
+alter table Compra change retencion percepcion  decimal(10,2);
 alter table Compra add estado int;
 alter table Compra add tipo enum('ccf','nc');
 alter table Compra add numero_comprobante varchar(50);
