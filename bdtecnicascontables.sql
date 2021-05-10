@@ -134,17 +134,21 @@ create table Compra(
  condiciones int unsigned default 0,
  constraint fk_purchase_supplier Foreign key (proveedor) references Proveedor(Id) on update cascade on delete no action
 ) ENGINE=INNODB;
-alter table Compra add estado int;
-alter table Compra add tipo enum('ccf','nc');
-alter table Compra add numero_comprobante varchar(50);
-alter table Compra add nit varchar(50);
-alter table Compra add sujeto_excluido decimal(10,2);
-alter table Compra add nrc varchar(50);
-alter table Compra add exentas_importacion decimal(10,2);
-alter table Compra add exentas_internas decimal(10,2);
-alter table Compra add gravadas_importacion decimal(10,2);
-alter table Compra add gravadas_internas decimal(10,2);
-alter table Compra add totalCompras decimal(10,2);
+-- alter table Compra add estado int;
+-- alter table Compra add tipo enum('ccf','nc');
+-- alter table Compra add numero_comprobante varchar(50);
+-- alter table Compra add nit varchar(50);
+-- alter table Compra add sujeto_excluido decimal(10,2);
+-- alter table Compra add nrc varchar(50);
+-- alter table Compra add exentas_importacion decimal(10,2);
+-- alter table Compra add exentas_internas decimal(10,2);
+-- alter table Compra add gravadas_importacion decimal(10,2);
+-- alter table Compra add gravadas_internas decimal(10,2);
+-- alter table Compra add totalCompras decimal(10,2);
+
+alter table Compra drop tipo, drop numero_comprobante, drop nit, drop sujeto_excluido, drop nrc, drop exentas_importacion, drop exentas_internas,
+drop gravadas_importacion, drop gravadas_internas, drop totalCompras;
+alter table Compra add document_type enum('ccf','fcf'), add document_number varchar(25);
 
 
 create table Detalle_Compra(
