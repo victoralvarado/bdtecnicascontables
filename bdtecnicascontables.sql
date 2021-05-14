@@ -59,7 +59,8 @@ create table Cliente(
  telefono varchar(12)
 ) ENGINE=INNODB;
 alter table Cliente add estado int;
-
+alter table cliente modify column nrc varchar(20);
+alter table cliente modify column nit varchar(20);
 
 create table Documento_serie(
  id int unsigned AUTO_INCREMENT primary key,
